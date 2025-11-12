@@ -42,6 +42,7 @@
 (let ((default-directory user-emacs-directory))
   (load (expand-file-name "theme.el"))
   (load (expand-file-name "editor.el"))
+  (load (expand-file-name "keybinds.el"))
   (load (expand-file-name "minibuffer.el")))
 
 ;;; init.el ends here
