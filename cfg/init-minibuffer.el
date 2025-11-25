@@ -1,3 +1,9 @@
+;;; init-minibuffer.el --- Minibuffer config
+
+;;; Comentary:
+
+;;; Code:
+
 (setq default-directory "~/" ; Start looking in the home directory when opening files
       vs-follow-symlinks t) ; Always follow symlinks
 ;; Save minibuffer prompt history
@@ -8,3 +14,7 @@
 (recentf-mode 1) ; Store a list of recently opened files
 (fset 'yes-or-no-p 'y-or-n-p) ; Ask "y/n?" instead of "yes/no?"
 (which-key-mode +1)
+
+(provide 'init-minibuffer)
+
+;;; init-minibuffer.el ends here

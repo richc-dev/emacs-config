@@ -1,3 +1,9 @@
+;;; init.el --- Loads the config
+
+;;; Commentary:
+
+;;; Code:
+
 ;; Use straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -17,32 +23,16 @@
 (setq straight-use-package-by-default t ; Automatically install packages unless told not to
       straight-enable-package-integration nil)
 
-;; Packages
-;(use-package all-the-icons
-;  :if (display-graphic-p))
-(use-package magit)
-(use-package projectile
-  :init (projectile-mode +1)
-  :bind (:map projectile-mode-map
-	      ("C-c p" . projectile-command-map)))
-
-;; Language support
-(use-package emmet-mode
-  :hook '(css-mode-hook sgml-mode-hook html-mode-hook))
-
-;; Place automatically generated configs in custom-vars.el instead of init.el
-(setq custom-file (locate-user-emacs-file "custom-vars.el"))
-(load custom-file 'noerror 'nomessage)
-(setq gc-cons-threshold 20000000 ; Allow 20MB of memory before running garbage collection
-      inhibit-startup-message t ; Don't show the startup message
-      make-backup-files nil) ; Don't make backup files
-(setq-default dired-listing-switches "-alh") ; Show file sizes in dired buffers
-
 ;; Load other config files
-(let ((default-directory user-emacs-directory))
-  (load (expand-file-name "theme.el"))
-  (load (expand-file-name "editor.el"))
-  (load (expand-file-name "keybinds.el"))
-  (load (expand-file-name "minibuffer.el")))
+(let ((default-directory (expand-file-name "cfg" user-emacs-directory)))
+  (add-to-list 'load-path default-directory)
+  (normal-top-level-add-subdirs-to-load-path))
+
+(require 'init-editor)
+(require 'init-main)
+(require 'init-theme)
+(require 'init-keybinds)
+(require 'init-minibuffer)
+(require 'init-python)
 
 ;;; init.el ends here
