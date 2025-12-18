@@ -1,29 +1,42 @@
-;;; keybinds.el --- defines custom keybinds
-
+;;; init-keybinds.el --- defines custom keybinds
 ;;; Commentary:
-
 ;;; Code:
 
+(use-package ryo-modal
+  :commands ryo-modal-mode
+  :bind ("C-`" . ryo-modal-mode)
+  :config
+  (ryo-modal-keys
+   ("q" ryo-modal-mode)
+   ("h" "C-b")
+   ("j" "C-n")
+   ("k" "C-p")
+   ("l" "C-f"))
+
+  (ryo-modal-keys
+   (:norepeat t)
+   ("0" "M-0")
+   ("1" "M-1")
+   ("2" "M-2")
+   ("3" "M-3")
+   ("4" "M-4")
+   ("5" "M-5")
+   ("6" "M-6")
+   ("7" "M-7")
+   ("8" "M-8")
+   ("9" "M-9")))
+
 (bind-keys
-  :map global-map
-  ("C-j" . backward-char)
-  ("C-;" . forward-char)
-  ("C-k" . next-line)
-  ("C-l" . previous-line)
-  ("M-k" . forward-word)
-  ("M-j" . backward-word)
-  ("M-'" . dabbrev-expand)
-  ("C-p" . electric-newline-and-maybe-indent)
-  ("C-f" . kill-line)
-  ("C-n" . recenter-top-bottom)
-  ("M-p" . default-indent-new-line)
-  ("M-f" . kill-sentence)
-  ("M-/" . comment-dwim)
+ :map global-map
+ 
  ;; smartparens keybinds
  :map smartparens-mode-map
  ("C-M-a" . sp-beginning-of-sexp)
- ("C-M-e" . sp-end-of-sexp))
+ ("C-M-e" . sp-end-of-sexp)
+ ;; CIDER keybinds
+ :map cider-repl-mode-map
+ ("RET" . cider-repl-return))
 
  (provide 'init-keybinds)
 
-;;; keybinds.el ends here
+;;; init-keybinds.el ends here

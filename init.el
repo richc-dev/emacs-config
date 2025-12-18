@@ -1,7 +1,5 @@
 ;;; init.el --- Loads the config
-
 ;;; Commentary:
-
 ;;; Code:
 
 ;; Use straight.el
@@ -31,8 +29,11 @@
 (require 'init-editor)
 (require 'init-main)
 (require 'init-theme)
-(require 'init-keybinds)
 (require 'init-minibuffer)
 (require 'init-python)
+(require 'init-web)
+(require 'init-clojure)
+(require 'init-nix)
+(require 'init-keybinds)
 
 ;;; init.el ends here
