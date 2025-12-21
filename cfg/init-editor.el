@@ -39,6 +39,11 @@
 ;; Flycheck
 (use-package flycheck
   :init (global-flycheck-mode))
+;; - Allow Flycheck to work with Eglot
+(use-package flycheck-eglot
+  :after (flycheck eglot)
+  :config
+  (global-flycheck-eglot-mode 1))
 
 (use-package dash) ;; Required by smartparens
 (use-package smartparens
