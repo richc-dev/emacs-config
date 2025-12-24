@@ -4,14 +4,35 @@
 
 (use-package ryo-modal
   :commands ryo-modal-mode
-  :bind ("C-`" . ryo-modal-mode)
+  :bind ("C-;" . ryo-modal-mode)
   :config
+  (ryo-modal-key "SPC" '(("SPC" "C-SPC")
+			 ("d" mark-defun :name "Mark defun")
+			 ("p" mark-paragraph :name "Mark paragraph")
+			 ("s" mark-sexp :name "Mark sexp")
+			 ("w" mark-word :name "Mark word")))
   (ryo-modal-keys
+   ("/" "C-/")
+   ("a" "C-a")
+   ("b" "C-b")
+   ("d" "C-d")
+   ("e" "C-e")
+   ("f" "C-f")
+   ("k" (("d" mark-defun :name "Kill defun")
+	 ("k" "C-k")
+	 ("p" mark-paragraph :name "Kill paragraph")
+	 ("s" mark-sexp :name "Kill sexp")
+	 ("w" mark-word :name "Kill word"))
+    :then '(kill-region))
+   ("l" "C-l")
+   ("n" "C-n")
+   ("p" "C-p")
    ("q" ryo-modal-mode)
-   ("h" "C-b")
-   ("j" "C-n")
-   ("k" "C-p")
-   ("l" "C-f"))
+   ("v" "C-v")
+   ("x" (("b" "C-x b")
+	 ("k" "C-x k")
+	 ("p" (("f" "C-x p f")))
+	 ("s" "C-x C-s"))))
 
   (ryo-modal-keys
    (:norepeat t)
