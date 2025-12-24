@@ -49,7 +49,7 @@
 (use-package smartparens
   :init (smartparens-global-mode t))
 
-;; Visuallize indentation
+;; Visualize indentation
 (use-package indent-bars
   :hook ((yaml-mode) . indent-bars-mode))
 
@@ -67,6 +67,8 @@
 (use-package editorconfig
   :config
   (editorconfig-mode 1))
+
+(use-package markdown-mode)
 
 (provide 'init-editor)
 
